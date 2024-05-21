@@ -41,9 +41,9 @@ $env.PROMPT_COMMAND_RIGHT = {|| create_right_prompt }
 
 # The prompt indicators are environmental variables that represent
 # the state of the prompt
-$env.PROMPT_INDICATOR = {|| "🦀〉 " }
+$env.PROMPT_INDICATOR = {|| " 🦀 〉 " }
 $env.PROMPT_INDICATOR_VI_INSERT = {|| ": " }
-$env.PROMPT_INDICATOR_VI_NORMAL = {|| "🦀〉 " }
+$env.PROMPT_INDICATOR_VI_NORMAL = {|| " 🦀 〉 " }
 $env.PROMPT_MULTILINE_INDICATOR = {|| "::: " }
 
 # If you want previously entered commands to have a different prompt from the usual one,
@@ -97,25 +97,4 @@ $env.NU_PLUGIN_DIRS = [
 # $env.PATH = ($env.PATH | uniq)
 
 # To load from a custom file you can use:
-# source ($nu.default-config-dir | path join 'custom.nu')
-
-$env.EDITOR = nvim
-
-$env.HOME_BIN      = $env.HOME | path join bin
-$env.DOT_BUN_BIN   = $env.HOME | path join .bun bin
-$env.DOT_CARGO_BIN = $env.HOME | path join .cargo bin
-$env.DOT_GHCUP_BIN = $env.HOME | path join .ghcup bin
-$env.DOT_LOCAL_BIN = $env.HOME | path join .local bin
-$env.DOT_RD_BIN    = $env.HOME | path join .local bin
-
-$env.PATH = $env.PATH | split row (char esep)
-  | append /usr/local/bin
-  | append $env.HOME_BIN
-  | append $env.DOT_BUN_BIN
-  | append $env.DOT_CARGO_BIN
-  | append $env.DOT_GHCUP_BIN
-  | append $env.DOT_LOCAL_BIN
-  | append $env.DOT_RD_BIN
-  | uniq # filter so the paths are unique
-
-alias ll = ls -l
+source ($nu.default-config-dir | path join 'custom.nu')
